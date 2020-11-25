@@ -12,6 +12,7 @@ int main()
 	task_2::dups_remove( data, strlen( data ) );
 	printf( "%s\n", data );
 
+	task_3::List mi_list{ { "one", "two", "three" } };
 
 	return 0;
 }
