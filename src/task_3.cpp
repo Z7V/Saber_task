@@ -80,7 +80,7 @@ void List::Serialize( FILE* file ) const
 		auto data = cursor->mData.c_str();
 		auto data_size = std::min( DATA_MAX_LENGTH, static_cast< DATA_LENGTH_SPECIFIER_TYPE >( cursor->mData.size() ) );
 		auto rand_idx = rand_idx_itr != nodes_map.end() ? rand_idx_itr->second : 0;
-		
+
 		memcpy( buffer, reinterpret_cast< char* >( &data_size ), DATA_LENGTH_SPECIFIER );
 		memcpy( buffer + DATA_LENGTH_SPECIFIER, reinterpret_cast< char* >( &rand_idx ), INDEX_LENGTH );
 		memcpy( buffer + DATA_LENGTH_SPECIFIER + INDEX_LENGTH, data, data_size );
@@ -136,11 +136,9 @@ void List::Deserialize( FILE* file )
 
 void List::IterAll( std::function< void( const ListNode* ) > callable ) const
 {
-	auto cursor = mHead;
-	while( cursor )
+	for( auto cursor = mHead; cursor; cursor = cursor->mNext )
 	{
 		callable( cursor );
-		cursor = cursor->mNext;
 	}
 }
 
