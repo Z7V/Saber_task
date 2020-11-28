@@ -3,7 +3,6 @@
 #include <cstdlib>
 #include <exception>
 #include <functional>
-#include <stdio.h>
 
 static size_t MAX_LENGTH = 1024; 
 

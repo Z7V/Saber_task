@@ -3,7 +3,6 @@
 #include "task_3.hpp"
 
 #include <cstdio>
-// #include <stdio.h>
 
 int main()
 {
