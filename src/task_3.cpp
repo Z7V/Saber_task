@@ -124,9 +124,9 @@ void List::Deserialize( FILE* file )
 		if( curr_idx == FIRST_ELEMENT_INDEX ) 								mHead = node;
 		else if( curr_idx == FIRST_ELEMENT_INDEX + node_map.size() - 1 )	mTail = node;
 
-		if( curr_idx )						 node->mPrev = node_map[ curr_idx - 1 ].first;
-		if( node_map.count( curr_idx + 1 ) ) node->mNext = node_map[ curr_idx + 1 ].first;
-		if( rand_idx ) 						 node->mRand = node_map[ rand_idx ].first;
+		if( curr_idx > FIRST_ELEMENT_INDEX )	node->mPrev = node_map[ curr_idx - 1 ].first;
+		if( node_map.count( curr_idx + 1 ) )	node->mNext = node_map[ curr_idx + 1 ].first;
+		if( rand_idx ) 						 	node->mRand = node_map[ rand_idx ].first;
 	}
 
 	free( buffer );
